@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>UGC NET Political Science – Pradyuman Sir</title>
+
+<style>
+/* ================= BASE ================= */
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, Segoe UI, Roboto;
+  background:
+    radial-gradient(1200px 600px at top left, #E8F7FF 0%, transparent 60%),
+    radial-gradient(1200px 600px at bottom right, #F3FBFF 0%, transparent 60%),
+    #F5FAFF;
+}
+
+/* ================= HEADER ================= */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.header img{ height:36px; }
+
+.header .title{
+  font-weight:800;
+  font-size:16px;
+}
+.header .sub{
+  font-size:12px;
+  color:#0B89B3;
+  font-weight:700;
+}
+
+.nav-link{
+  padding:8px 14px;
+  border-radius:999px;
+  background:#0B89B3;
+  color:#fff;
+  font-weight:700;
+  font-size:13px;
+  text-decoration:none;
+  transition:.2s;
+}
+.nav-link:hover{
+  background:#086f91;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+  background:#fff;
+  margin:24px auto;
+  padding:20px;
+  max-width:1200px;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(0,0,0,.08);
+  border:1px solid rgba(11,137,179,.08);
+}
+
+.faculty-hero{
+  background:
+    radial-gradient(600px 300px at top left, rgba(11,137,179,.12), transparent 60%),
+    linear-gradient(135deg, #F0FBFF, #FFFFFF);
+}
+
+/* ================= GRID ================= */
+.topics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+@media(max-width:900px){
+  .topics{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* ================= CARDS ================= */
+.topic,.note,.work{
+  border:1px solid rgba(11,137,179,.15);
+  padding:14px;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 6px 14px rgba(0,0,0,.06);
+  cursor:pointer;
+  transition:.25s;
+}
+.topic:hover,.note:hover,.work:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px rgba(0,0,0,.12);
+  border-color:#0B89B3;
+}
+
+.badge{
+  font-size:11px;
+  font-weight:800;
+  color:#0B89B3;
+  background:rgba(11,137,179,.12);
+  padding:4px 8px;
+  border-radius:999px;
+  display:inline-block;
+}
+
+/* ================= CAROUSEL ================= */
+.carousel{
+  position:relative;
+  padding:0 40px;
+}
+.track{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+}
+.track::-webkit-scrollbar{ display:none; }
+
+.batch{
+  min-width:260px;
+  background:#fff;
+  border-radius:18px;
+  border:1px solid rgba(11,137,179,.15);
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  cursor:pointer;
+  transition:.25s;
+}
+.batch:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 36px rgba(0,0,0,.18);
+}
+.batch img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:18px 18px 0 0;
+}
+.batch .info{
+  padding:12px;
+  font-weight:800;
+  font-size:14px;
+}
+
+/* arrows */
+.nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#fff;
+  border:none;
+  width:40px;
+  height:40px;
+  font-size:26px;
+  border-radius:50%;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+  z-index:10;
+}
+.nav.prev{ left:8px; }
+.nav.next{ right:8px; }
+
+@media(max-width:520px){
+  .nav{ display:none; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<div class="header">
+  <div class="header-left">
+    <a href="https://testbook.com/super-coaching" target="_blank">
+      <img src="https://testbook.com/assets/img/super/super-coaching.svg?v=2">
+    </a>
+    <div>
+      <div class="title">UGC NET Political Science</div>
+      <div class="sub">By Pradyuman Sir</div>
+    </div>
+  </div>
+
+  <!-- 🔗 COMMUNITY NAVIGATION -->
+  <a href="community.html" class="nav-link">💬 Community</a>
+</div>
+
+<!-- ================= FACULTY ================= -->
+<div class="section faculty-hero">
+  <h2>Faculty – Pradyuman Sir</h2>
+
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <img src="https://cdn.testbook.com/resources/productionimages/Pradyumn-Tripathi_All_1670678455.png"
+         style="width:160px;border-radius:14px;border:1px solid #ddd;">
+    <div>
+      <div class="badge">UGC NET Political Science</div>
+      <p>• 8+ years experience<br>• 500+ selections<br>• PYQ focused teaching</p>
+      ⭐⭐⭐⭐⭐
+    </div>
+  </div>
+</div>
+
+<!-- ================= VIDEOS ================= -->
+<div class="section">
+  <h2>🎥 Free Classes</h2>
+  <div id="videos" class="topics"></div>
+</div>
+
+<!-- ================= NOTES ================= -->
+<div class="section">
+  <h2>📘 Notes</h2>
+  <div id="notes" class="topics"></div>
+</div>
+
+<!-- ================= WORKSHOPS ================= -->
+<div class="section">
+  <h2>🗓 Workshops</h2>
+  <div id="workshops" class="topics"></div>
+</div>
+
+<!-- ================= LIVE BATCHES ================= -->
+<div class="section">
+  <h2>🚀 Live Batches</h2>
+  <div class="carousel">
+    <button class="nav prev" onclick="slideLive(-1)">‹</button>
+    <div class="track" id="liveBatches"></div>
+    <button class="nav next" onclick="slideLive(1)">›</button>
+  </div>
+</div>
+
+<script>
+const SHEET_ID = "1_J0ETVcMtlfayFMz3B5aPwRo0USE5vPiNt1hgp-MHQY";
+
+function fetchSheet(sheet){
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${sheet}`;
+  return fetch(url).then(r=>r.text()).then(t=>JSON.parse(t.substring(47).slice(0,-2)).table.rows);
+}
+const esc = t => String(t||"").replace(/[&<>]/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;" }[m]));
+
+/* VIDEOS */
+fetchSheet("videos").then(r=>{
+  const w=document.getElementById("videos");
+  r.filter(x=>x.c[4]?.v).sort((a,b)=>(a.c[3]?.v||0)-(b.c[3]?.v||0)).forEach(x=>{
+    const d=document.createElement("div");
+    d.className="topic";
+    d.innerHTML=`<strong>${esc(x.c[0].v)}</strong><br><span class="badge">${esc(x.c[2].v)}</span>`;
+    d.onclick=()=>window.open(x.c[1].v);
+    w.appendChild(d);
+  });
+});
+
+/* NOTES */
+fetchSheet("Notes").then(r=>{
+  const w=document.getElementById("notes");
+  r.filter(x=>x.c[3]?.v).sort((a,b)=>a.c[0].v.localeCompare(b.c[0].v)).forEach(x=>{
+    const d=document.createElement("div");
+    d.className="note";
+    d.innerHTML=`<strong>${esc(x.c[0].v)}</strong><br><span class="badge">${esc(x.c[1].v)}</span>`;
+    d.onclick=()=>window.open(x.c[2].v);
+    w.appendChild(d);
+  });
+});
+
+/* WORKSHOPS */
+fetchSheet("Workshops").then(r=>{
+  const w=document.getElementById("workshops");
+  r.filter(x=>x.c[4]?.v).forEach(x=>{
+    const d=document.createElement("div");
+    d.className="work";
+    d.innerHTML=`<strong>${esc(x.c[0].v)}</strong><br>${esc(x.c[1].v)} | ${esc(x.c[2].v)}<br><span class="badge">${esc(x.c[3].v)}</span>`;
+    w.appendChild(d);
+  });
+});
+
+/* LIVE BATCHES */
+fetchSheet("livebatches").then(r=>{
+  const w=document.getElementById("liveBatches");
+  r.forEach(x=>{
+    if(!x.c[0]?.v) return;
+    const d=document.createElement("div");
+    d.className="batch";
+    d.innerHTML=`<img src="${x.c[1].v}"><div class="info">${esc(x.c[0].v)}</div>`;
+    d.onclick=()=>window.open(x.c[2].v);
+    w.appendChild(d);
+  });
+});
+
+function slideLive(d){
+  document.getElementById("liveBatches").scrollBy({left:d*300,behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
