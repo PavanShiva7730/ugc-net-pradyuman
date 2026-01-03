@@ -236,6 +236,17 @@ body{
     <button class="nav next" onclick="slideLive(1)">›</button>
   </div>
 </div>
+<!-- ================= STUDY NOTES ================= -->
+<div class="section">
+  <h2>📚 Study Notes</h2>
+  <div id="studyNotes" class="topics"></div>
+</div>
+
+<!-- ================= STUDY PLAN ================= -->
+<div class="section">
+  <h2>🗂 Study Plan (Profession-wise)</h2>
+  <div id="studyPlan" class="topics"></div>
+</div>
 
 <script>
 const SHEET_ID = "1_J0ETVcMtlfayFMz3B5aPwRo0USE5vPiNt1hgp-MHQY";
@@ -291,6 +302,61 @@ fetchSheet("livebatches").then(r=>{
     d.innerHTML=`<img src="${x.c[1].v}"><div class="info">${esc(x.c[0].v)}</div>`;
     d.onclick=()=>window.open(x.c[2].v);
     w.appendChild(d);
+  });
+});
+/* ================= STUDY NOTES ================= */
+/*
+Sheet: Studynotes
+A: Name
+B: PDF Link
+*/
+fetchSheet("Studynotes").then(rows => {
+  const wrap = document.getElementById("studyNotes");
+  wrap.innerHTML = "";
+
+  rows.forEach(r => {
+    const title = r.c[0]?.v;
+    const link  = r.c[1]?.v;
+
+    if (!title || !link) return;
+
+    const div = document.createElement("div");
+    div.className = "note";
+    div.innerHTML = `
+      <strong>${esc(title)}</strong><br>
+      <span class="badge">View PDF</span>
+    `;
+    div.onclick = () => window.open(link, "_blank");
+
+    wrap.appendChild(div);
+  });
+});
+
+/* ================= STUDY PLAN ================= */
+/*
+Sheet: StudyPlan
+A: Profession
+B: PDF Link
+*/
+fetchSheet("StudyPlan").then(rows => {
+  const wrap = document.getElementById("studyPlan");
+  wrap.innerHTML = "";
+
+  rows.forEach(r => {
+    const profession = r.c[0]?.v;
+    const link       = r.c[1]?.v;
+
+    if (!profession || !link) return;
+
+    const div = document.createElement("div");
+    div.className = "note";
+    div.innerHTML = `
+      <strong>${esc(profession)}</strong><br>
+      <span class="badge">Open Plan</span>
+    `;
+    div.onclick = () => window.open(link, "_blank");
+
+    wrap.appendChild(div);
   });
 });
 
