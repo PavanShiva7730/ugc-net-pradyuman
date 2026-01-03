@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Community – UGC NET Political Science</title>
+
+<style>
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI;
+  background:#F5FAFF;
+}
+.header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  background:#fff;
+  border-bottom:1px solid #ddd;
+}
+.section{
+  max-width:900px;
+  margin:24px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+button{
+  padding:10px 16px;
+  border-radius:12px;
+  border:none;
+  background:#0B89B3;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+.comment{
+  border:1px solid #ddd;
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:14px;
+}
+.reply{
+  margin-top:10px;
+  background:#F0FBFF;
+  border-left:4px solid #0B89B3;
+  padding:10px;
+  border-radius:8px;
+}
+.tick{
+  color:#1DA1F2;
+  font-weight:900;
+  margin-left:6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <a href="index.html">← Preparation Page</a>
+</div>
+
+<div class="section">
+  <h2>💬 Community Discussion</h2>
+
+  <input id="cName" placeholder="Your Name">
+  <input id="cMobile" placeholder="Mobile Number">
+  <textarea id="cComment" placeholder="Ask your question..."></textarea>
+
+  <button onclick="submitComment()">Post Question</button>
+
+  <hr style="margin:20px 0">
+
+  <div id="communityList"></div>
+</div>
+
+<script>
+const COMMUNITY_API =
+"https://script.google.com/macros/s/AKfycbyMSjq6fn6UReoRAYSu36NJPDAaa1x6V-GPxMETMKK7-0MnbRRabTr2kCEnLZyDkRSGqQ/exec";
+
+const SHEET_ID = "1_J0ETVcMtlfayFMz3B5aPwRo0USE5vPiNt1hgp-MHQY";
+
+function esc(t){
+  return String(t||"").replace(/[&<>]/g,m=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;"
+  }[m]));
+}
+
+/* LOAD COMMENTS */
+fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=community`)
+.then(r=>r.text())
+.then(t=>JSON.parse(t.substring(47).slice(0,-2)).table.rows)
+.then(rows=>{
+  const wrap=document.getElementById("communityList");
+  wrap.innerHTML="";
+  rows.reverse().forEach(r=>{
+    if(!r.c[0]?.v) return;
+    const div=document.createElement("div");
+    div.className="comment";
+    div.innerHTML=`
+      <strong>${esc(r.c[1]?.v)}</strong><br>
+      ${esc(r.c[0]?.v)}
+      ${r.c[4]?.v ? `
+        <div class="reply">
+          <strong>Pradyuman Sir</strong>
+          <span class="tick">✔</span><br>
+          ${esc(r.c[4].v)}
+        </div>` : ""}
+    `;
+    wrap.appendChild(div);
+  });
+});
+
+/* SUBMIT COMMENT */
+function submitComment(){
+  const name=cName.value.trim();
+  const mobile=cMobile.value.trim();
+  const comment=cComment.value.trim();
+
+  if(!name || !mobile || !comment){
+    alert("Fill all fields");
+    return;
+  }
+
+  const data = new URLSearchParams();
+  data.append("name", name);
+  data.append("mobile", mobile);
+  data.append("comment", comment);
+
+  fetch(COMMUNITY_API,{
+    method:"POST",
+    body:data
+  })
+  .then(r=>r.text())
+  .then(t=>{
+    alert("Question posted successfully");
+    location.reload();
+  })
+  .catch(()=>{
+    alert("Error submitting question");
+  });
+}
+</script>
+
+</body>
+</html>
